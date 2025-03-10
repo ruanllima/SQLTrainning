@@ -3,6 +3,7 @@
 
 :root {
     --main-font: "Poppins", sans-serif;
+    --color-gray: #eee8ff;
 }
 
 * {
@@ -29,7 +30,7 @@
 
 
 .header .title{
-    color: #eee8ff;
+    color: var(--color-gray);
     font-family: var(--main-font), sans-serif;
     font-weight: 600;
     padding: 4px;
@@ -40,9 +41,31 @@
     align-items: center;
     justify-content: center;
     width: 100%;
+    padding-top: 100px;
+}
+.main .form{
+    width: 100%;
+    display: flex;
+    flex-position: inline;
+    align-items: center;
+    justify-content: center;
 }
 
-.main .input{
-    background-color: #FFFFFF;
+.form .input{
+    background-color: var(color-gray);
     border-radius: 4px;
+    padding: 10px;
+    width: 50%;
+    outline: none;
+    color:rgb(83, 83, 83);
+    font-family: var(--main-font);
+}
+
+.form .submit{
+    background-color: #1c72f4;
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+    border-none;
+    margin-left: 20px;
 }
