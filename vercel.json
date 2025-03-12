@@ -11,6 +11,10 @@
             "src": "(.*)",
             "dest": "backend/server.js"
         }
-    ]
+        
+    ],
+    "env": {
+        "DB_URL": "@db_url"
+    }
   }
   
