@@ -1,5 +1,5 @@
 import express from 'express'; // Importando express
-import { connectToDb } from './db.js'; // Importando a função de conexão do arquivo db.js
+import { connectToDb } from './backend/db.js'; // Importando a função de conexão do arquivo db.js
 
 const app = express();
 
