@@ -5,7 +5,7 @@ dotenv.config();
 
 const connectToDb = async () => {
   const client = new Client({
-    connectionString: process.env.DB_URL, // Usando a variável de ambiente DB_URL
+    connectionString: process.env.DATABASE_URL, // Usando a variável de ambiente DB_URL
   });
 
   await client.connect();

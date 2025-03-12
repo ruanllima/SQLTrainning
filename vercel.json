@@ -14,7 +14,7 @@
         
     ],
     "env": {
-        "DB_URL": "@db_url"
+        "DATABASE_URL": "@database_url"
     }
   }
   
