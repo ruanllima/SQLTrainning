@@ -1,12 +1,12 @@
 import { Client } from 'pg';
+import dotenv from 'dotenv';
+
+// Carregar as variáveis de ambiente do arquivo .env
+dotenv.config();
 
 const connectToDb = async () => {
   const client = new Client({
-    user: 'postgres',
-    host: 'db.asmgnoxzlvkbbpnchbkd.supabase.co',
-    database: 'postgres',
-    password: 'Dezembrode81!',
-    port: 5432,
+    connectionString: process.env.DB_URL, // Usando a variável de ambiente DB_URL
   });
 
   await client.connect();

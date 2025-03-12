@@ -8,6 +8,7 @@ app.get('/', function (req, res)
     res.send('Hello World');
 })
   
+
 const port = process.env.PORT || 3000; // Usando a variável de ambiente PORT se definida (padrão 3000)
 
 app.listen(port, () => {
