@@ -1,16 +1,22 @@
-import express from 'express'; // Importando express
-import { connectToDb } from './backend/db.js'; // Importando a função de conexão do arquivo db.js
+// server.js
+import express from 'express';
+import conn from './db.js';  // Importando a conexão do banco de dados
 
 const app = express();
+const port = 3000;
 
-app.get('/', function (req, res)
-{
-    res.send('Hello World');
-})
-  
+// Rota para retornar todos os produtos
+app.get('/products', (req, res) => {
+  conn.query('SELECT * FROM products', (err, results) => {
+    if (err) {
+      res.status(500).send('Erro ao buscar produtos');
+      return;
+    }
+    res.json(results);  // Retorna os resultados como JSON
+  });
+});
 
-const port = process.env.PORT || 3000; // Usando a variável de ambiente PORT se definida (padrão 3000)
-
+// Iniciando o servidor
 app.listen(port, () => {
   console.log(`Servidor rodando na porta ${port}`);
 });

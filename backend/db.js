@@ -1,15 +1,15 @@
-import { Client } from 'pg';
-import dotenv from 'dotenv';
+import mysql from 'mysql2';
 
-dotenv.config();
+const conn = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "",
+  database: "sqltrainning"
+})
 
-const connectToDb = async () => {
-  const client = new Client({
-    connectionString: process.env.DATABASE_URL, // Usando a variável de ambiente DB_URL
-  });
+conn.connect(function(err) {
+  if (err) throw err;
+  console.log("Connected!")
+})
 
-  await client.connect();
-  return client;
-};
-
-export { connectToDb };
+export default conn;
