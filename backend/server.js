@@ -11,8 +11,13 @@ app.use(express.static(path.join(__dirname, 'frontend')));
 app.use(express.urlencoded({ extended: true }));
 
 
-app.get('/', function(req, res){
-  res.sendFile(__dirname + "/frontend/index.html");
+app.get('/', async (req, res) => {
+  try {
+    const client = await connectToDb();
+    res.send('Conectado ao banco de dados com sucesso!');
+  } catch (err) {
+    res.status(500).send('Erro ao conectar ao banco de dados: ' + err.message);
+  }
 });
 
 app.post('/send', (req, res) => 
