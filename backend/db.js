@@ -2,15 +2,17 @@ import { Client } from 'pg';
 
 const connectToDb = async () => {
   const client = new Client({
-    user: 'postgres',
-    host: 'db.asmgnoxzlvkbbpnchbkd.supabase.co',
-    database: 'postgres',
-    password: 'Dezembrode81!',
-    port: 5432,
+    connectionString: process.env.DB_URL,
   });
 
-  await client.connect();
-  return client;
+  try {
+    await client.connect();
+    console.log('Conectado ao banco de dados!');
+    return client;
+  } catch (err) {
+    console.error('Erro de conexão:', err);
+    throw err;
+  }
 };
 
 export { connectToDb };
